@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gwalior Smart City</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1, h2, h3 {
+            color: #0044cc;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            width: 50px;
+            height: auto;
+            margin-right: 20px;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        table th {
+            background-color: #0044cc;
+            color: white;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .download-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #0044cc;
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .download-button:hover {
+            background-color: #0033aa;
+        }
+        .date-selector {
+            margin-bottom: 20px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="public/icon.png" alt="Logo"/>
+            <h1>Gwalior Smart City</h1>
+        </div>
+
+        <p><Strong>Gwalior Check Post Team Monitoring Report </Strong></p>
+
+        <div class="section">
+            <h2>Data Table</h2>
+            <div class="table-container">
+                <table id="metrics-table">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>SST Location</th>
+                            <th>SST Name</th>
+                            <th>Mobile Number</th>
+                            <th>Checking Time</th>
+                            <th>Remark & Timing (04:00 PM)</th>
+                            <th>Remark & Timing (06:00 PM)</th>
+                            <th>Remark & Timing (08:00 PM)</th>
+                            <th>Remark & Timing (10:00 PM)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Mohana</td>
+                            <td>Rakesh kumar Gupta, G.K Shrivastav, Omprakash Kane</td>
+                            <td>9926225166, 9977021658, 9926245820</td>
+                            <td>24 hours</td>
+                            <td>जी के श्रीवास्तव जी के द्वारा बताया गया है की चेकिंग बराबर की जा रही है। (03:45PM)</td>
+                            <td>ओमप्रकाश केन जी के द्वारा बताया गया है कि चैकिंग बराबर हो रही है। (06:02PM)</td>
+                            <td>ओमप्रकाश केन जी के द्वारा बताया गया है कि चैकिंग बराबर हो रही है। (07:40PM)</td>
+                            <td>ओमप्रकाश केन जी के द्वारा बताया गया है कि चैकिंग बराबर हो रही है। (09:40PM)</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Gohinda</td>
+                            <td>Piyush Chand, RK Kokwani, Kapil Kumar</td>
+                            <td>8124484832, 6232641721, 7906394885</td>
+                            <td>24 hours</td>
+                            <td>आर के कोकवानी जी के द्वारा बताया है की चेकिंग बराबर की जा रही है।(03:47PM)</td>
+                            <td>आर के कोकवानी जी के द्वारा बताया है की चेकिंग बराबर की जा रही है।(05:47PM)</td>
+                            <td>आर के कोकवानी जी के द्वारा बताया है की चेकिंग बराबर की जा रही है।(07:42PM)</td>
+                            <td>आर के कोकवानी जी के द्वारा बताया है की चेकिंग बराबर की जा रही है।(09:43PM)</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Lodi Tiraha</td>
+                            <td>Lawrence kumar bodh, M.C Sharma, Ajay Kumar</td>
+                            <td>9993277488, 9425619912, 9406972494</td>
+                            <td>24 hours</td>
+                            <td>लॉरेंस कुमार जी के द्वारा बताया है की चेकिंग बराबर की जा रही है।(03:50PM)</td>
+                            <td>लॉरेंस कुमार जी के द्वारा बताया है की चेकिंग बराबर की जा रही है।(05:50PM)</td>
+                            <td>लॉरेंस कुमार जी के द्वारा बताया है की चेकिंग बराबर की जा रही है।(07:45PM)</td>
+                            <td>लॉरेंस कुमार जी के द्वारा बताया है की चेकिंग बराबर की जा रही है।(09:45PM)</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Ginjora</td>
+                            <td>Ramesvar singh Alapuriya, Sunil Saxena, Jaynaryan Rajoriya</td>
+                            <td>9926228570, 9826565033, 9926730423</td>
+                            <td>24 hours</td>
+                            <td>रामेश्वर अलपुरिया जी के द्वारा बताया गया है की चेकिंग बराबर की जा रही है। (03:52PM)</td>
+                            <td>रामेश्वर अलपुरिया जी के द्वारा बताया गया है की चेकिंग बराबर की जा रही है। (05:53PM)</td>
+                            <td>रामेश्वर अलपुरिया जी के द्वारा बताया गया है की चेकिंग बराबर की जा रही है। (07:47PM)</td>
+                            <td>रामेश्वर अलपुरिया जी के द्वारा बताया गया है की चेकिंग बराबर की जा रही है। (09:48PM)</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Lidhora</td>
+                            <td>Shubham Kumar Gupta, Vijay Kumar Sharma, Bhola Gurjar</td>
+                            <td>8120995050, 9753139003, 9630757536</td>
+                            <td>24 hours</td>
+                            <td>शुभम कुमार गुप्ता जी के द्वारा बताया गया है की यहाँ चेकिंग अच्छे से की जा रही है। (03:55PM)</td>
+                            <td>शुभम कुमार गुप्ता जी के द्वारा बताया गया है की यहाँ चेकिंग अच्छे से की जा रही है। (05:56PM)</td>
+                            <td>शुभम कुमार गुप्ता जी के द्वारा बताया गया है की यहाँ चेकिंग अच्छे से की जा रही है। (07:50PM)</td>
+                            <td>शुभम कुमार गुप्ता जी के द्वारा बताया गया है की यहाँ चेकिंग अच्छे से की जा रही है। (09:50PM)</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Chandpura</td>
+                            <td>Padmakar Mokhribale, Nathuram Mahor, Satyprakash Samoliya</td>
+                            <td>9826240623, 9826280044, 9893601369</td>
+                            <td>24 hours</td>
+                            <td>सत्यप्रकाश समोलिया जी के द्वारा बताया गया हे कि यह पे चेकिंग बराबर हो रही है (03:58PM)</td>
+                            <td>सत्यप्रकाश समोलिया जी के द्वारा बताया गया हे कि यह पे चेकिंग बराबर हो रही है (05:58PM)</td>
+                            <td>सत्यप्रकाश समोलिया जी के द्वारा बताया गया हे कि यह पे चेकिंग बराबर हो रही है (07:52PM)</td>
+                            <td>सत्यप्रकाश समोलिया जी के द्वारा बताया गया हे कि यह पे चेकिंग बराबर हो रही है (09:52PM)</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Motijheel</td>
+                            <td>Kantaprasad Nayak, R.V.S Narwariya, Rajeev Kumar</td>
+                            <td>9009700695, 7974885212, 9425114402</td>
+                            <td>24 hours</td>
+                            <td>राजीव कुमार जी के द्वारा बताया गया हे कि यह पे चेकिंग बराबर हो रही है (04:00PM)</td>
+                            <td>राजीव कुमार जी के द्वारा बताया गया हे कि यह पे चेकिंग बराबर हो रही है (06:00PM)</td>
+                            <td>राजीव कुमार जी के द्वारा बताया गया हे कि यह पे चेकिंग बराबर हो रही है (07:53PM)</td>
+                            <td>राजीव कुमार जी के द्वारा बताया गया हे कि यह पे चेकिंग बराबर हो रही है (09:55PM)</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Jalalpur</td>
+                            <td>Raghvendra Sharma, Sanjay Kumar, Mukesh Kumar Saxena, R.B sharma, R.D. rathor, Dinesh sharma</td>
+                            <td>9755524467, 9977083266, 9827620141, 9926228312, 7000356329, 9926957251</td>
+                            <td>24 hours</td>
+                            <td>आर.डी.राठौर जी के द्वारा बताया गया है कि यह पे चेकिंग बराबर हो रही है (04:13PM)</td>
+                            <td>आर.डी.राठौर जी के द्वारा बताया गया है कि यह पे चेकिंग बराबर हो रही है (06:03PM)</td>
+                            <td>आर.डी.राठौर जी के द्वारा बताया गया है कि यह पे चेकिंग बराबर हो रही है (07:55PM)</td>
+                            <td>आर.डी.राठौर जी के द्वारा बताया गया है कि यह पे चेकिंग बराबर हो रही है (09:57PM)</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>Choudhary dhawa</td>
+                            <td>Vijayanand Narwariya, Shailendar Mahor, Hemant Mehuriya, Anil Kumar Pandey</td>
+                            <td>9425630247, 9827366551, 9893836854, 9926232233</td>
+                            <td>24 hours</td>
+                            <td>अनिल कुमार पांडेय जी के द्वारा बताया गया है की इनके यहाँ चेकिंग बराबर की जा रही है। (04:03PM)</td>
+                            <td>शैलेंद्र जी के द्वारा बताया गया है कि यह पे चेकिंग बराबर हो रही है (06:05PM)</td>
+                            <td>शैलेंद्र जी के द्वारा बताया गया है कि यह पे चेकिंग बराबर हो रही है (07:58PM)</td>
+                            <td>शैलेंद्र जी के द्वारा बताया गया है कि यह पे चेकिंग बराबर हो रही है (10:00PM)</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>gol pahadiya</td>
+                            <td>Naresh Verma, N.P. Singh, Sudhakar Shakya</td>
+                            <td>9926577859, 9425756668, 9981232464</td>
+                            <td>24 hours</td>
+                            <td>एन पी सिंह जी के द्वारा बताया गया है की इनके यहाँ चेकिंग बराबर की जा रही है। (04:05PM)</td>
+                            <td>एन पी सिंह जी के द्वारा बताया गया है की इनके यहाँ चेकिंग बराबर की जा रही है। (06:08PM)</td>
+                            <td>एन पी सिंह जी के द्वारा बताया गया है की इनके यहाँ चेकिंग बराबर की जा रही है। (08:00PM)</td>
+                            <td>एन पी सिंह जी के द्वारा बताया गया है की इनके यहाँ चेकिंग बराबर की जा रही है। (10:05PM)</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>Mohanpur</td>
+                            <td>Chandrashekhar Pathak, APS Yadav, Anil Verma</td>
+                            <td>8349835329, 9425619969, 8770812076</td>
+                            <td>24 hours</td>
+                            <td>चंद्रशेखर पाठक जी के द्वारा बताया गया है की चेकिंग बराबर हो रही है। (04:08PM)</td>
+                            <td>चंद्रशेखर पाठक जी के द्वारा बताया गया है की चेकिंग बराबर हो रही है। (06:10PM)</td>
+                            <td>चंद्रशेखर पाठक जी के द्वारा बताया गया है की चेकिंग बराबर हो रही है। (08:03PM)</td>
+                            <td>अनील वर्मा जी के द्वारा बताया गया है की चेकिंग बराबर हो रही है। (10:08PM)</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>Bilathi</td>
+                            <td>MR Dadoriya, Lakhan Singh Raghuvanshi, Akhilesh Singh Kushwah</td>
+                            <td>9993473072, 9827071354, 8966825212</td>
+                            <td>24 hours</td>
+                            <td>लखन सिंह जी के द्वारा बताया गया है की यह पे चेकिंग बराबर हो रही है। (04:17PM)</td>
+                            <td>लखन सिंह जी के द्वारा बताया गया है की यह पे चेकिंग बराबर हो रही है। (06:13PM)</td>
+                            <td>लखन सिंह जी के द्वारा बताया गया है की यह पे चेकिंग बराबर हो रही है। (08:05PM)</td>
+                            <td>अखिलेश कुशवाह जी के द्वारा बताया गया है की चेकिंग बराबर हो रही है। (10:11PM)</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>Kulaith</td>
+                            <td>Dheerendra Agarwal, Harnam Singh Patel, Roopnaryan Sharma</td>
+                            <td>9826547310, 9425709901, 9926593576</td>
+                            <td>24 hours</td>
+                            <td>रूपनारायण शर्मा जी के द्वारा बताया गया है की चेकिंग बराबर हो रही है। (04:10PM)</td>
+                            <td>रूपनारायण शर्मा जी के द्वारा बताया गया है की चेकिंग बराबर हो रही है। (06:14PM)</td>
+                            <td>रूपनारायण शर्मा जी के द्वारा बताया गया है की चेकिंग बराबर हो रही है। (08:07PM)</td>
+                            <td>रूपनारायण शर्मा जी के द्वारा बताया गया है की चेकिंग बराबर हो रही है। (10:13PM)</td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+
+        <button class="download-button" onclick="downloadExcel()">Download as Excel</button>
+
+        <div class="footer">
+            <p>&copy; 2024. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // const data = [
+        //     {
+        //         sno: 1,
+        //         sstLocation: "Mohana",
+        //         sstName: "Rakesh kumar Gupta, G.K Shrivastav, Omprakash Kane",
+        //         mobileNumber: "9926225166, 9977021658, 9926245820",
+        //         checkingTime: "24 hours",
+        //         remark0400: "जी के श्रीवास्तव जी के द्वारा बताया गया है की चेकिंग बराबर की जा रही है। (03:45PM)",
+        //         remark0600: "ओमप्रकाश केन जी के द्वारा बताया गया है कि चैकिंग बराबर हो रही है। (06:02 pm)",
+        //         remark0800: "ओमप्रकाश केन जी के द्वारा बताया गया है कि चैकिंग बराबर हो रही है। (07:40 pm)",
+        //         remark1000: "ओमप्रकाश केन जी के द्वारा बताया गया है कि चैकिंग बराबर हो रही है। (09:40 pm)"
+        //     },
+        //     {
+        //         sno: 2,
+        //         sstLocation: "Gohinda",
+        //         sstName: "Piyush Chand, RK Kokwani, Kapil Kumar",
+        //         mobileNumber: "8124484832, 6232641721, 7906394885",
+        //         checkingTime: "",
+        //         remark0400: "आर के कोकवानी जी के द्वारा बताया है की चेकिंग बराबर की जा रही है।(03:47PM)",
+        //         remark0600: "आर के कोकवानी जी के द्वारा बताया है की चेकिंग बराबर की जा रही है।(05:47PM)",
+        //         remark0800: "आर के कोकवानी जी के द्वारा बताया है की चेकिंग बराबर की जा रही है।(07:42PM)",
+        //         remark1000: "आर के कोकवानी जी के द्वारा बताया है की चेकिंग बराबर की जा रही है।(09:43PM)"
+        //     },
+            // Add more rows here
+        // ];
+
+        function populateTable() {
+            const tableBody = document.querySelector("#metrics-table tbody");
+
+            data.forEach(row => {
+                const tableRow = document.createElement('tr');
+                tableRow.innerHTML = `
+                    <td>${row.sno}</td>
+                    <td>${row.sstLocation}</td>
+                    <td>${row.sstName}</td>
+                    <td>${row.mobileNumber}</td>
+                    <td>${row.checkingTime}</td>
+                    <td>${row.remark0400}</td>
+                    <td>${row.remark0600}</td>
+                    <td>${row.remark0800}</td>
+                    <td>${row.remark1000}</td>
+                `;
+                tableBody.appendChild(tableRow);
+            });
+        }
+
+        function downloadExcel() {
+            const table = document.getElementById('metrics-table');
+            const workbook = XLSX.utils.table_to_book(table);
+            XLSX.writeFile(workbook, 'report.xlsx');
+        }
+
+        // Call the populateTable function when the page loads
+        document.addEventListener('DOMContentLoaded', populateTable);
+    </script>
+</body>
+</html>
